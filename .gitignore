@@ -1,0 +1,8 @@
+.env
+/vendor
+/node_modules
+/public/build
+/public/tmp
+/public/storage
+/storage/debugbar
+/storage/fonts
