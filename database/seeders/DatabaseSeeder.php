@@ -34,23 +34,6 @@ class DatabaseSeeder extends Seeder
                 $id_asenta_cpcons,
                 $d_zona
             ) = explode( '|', \Func::clean4search( $line ) );
-            \Log::info('**************');
-            \Log::info(
-                'd_codigo: ' . $d_codigo . '\n' . 
-                'd_asenta: ' . $d_asenta . '\n' . 
-                'd_tipo_asenta: ' . $d_tipo_asenta . '\n' . 
-                'd_mnpio: ' . $d_mnpio . '\n' . 
-                'd_estado: ' . $d_estado . '\n' . 
-                'd_ciudad: ' . $d_ciudad . '\n' . 
-                'd_cp: ' . $d_cp . '\n' . 
-                'c_estado: ' . $c_estado . '\n' . 
-                'c_oficina: ' . $c_oficina . '\n' . 
-                'c_cp: ' . $c_cp . '\n' . 
-                'c_tipo_asenta: ' . $c_tipo_asenta . '\n' . 
-                'c_mnpio: ' . $c_mnpio . '\n' . 
-                'id_asenta_cpcons: ' . $id_asenta_cpcons . '\n' . 
-                'd_zona: ' . $d_zona
-            );
             $federal_entity = \App\Models\FederalEntity::firstOrCreate(
                 [ 'key' => $c_estado, 'name' => $d_estado ]
             );
@@ -76,6 +59,5 @@ class DatabaseSeeder extends Seeder
             $settlement->settlement_type_id = $settlement_type->id;
             $settlement->save();
         }
-        \Log::info('Archivo CPdescarga cargado con éxito');
     }
 }
